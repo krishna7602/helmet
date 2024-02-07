@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import File from "./components/File";
+import Home from "./components/Home";
+import Landingpage from "./components/Landinpage";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import User from "./components/User";
+import Personaldetails from "./components/Personaldetails";
+import Aadhar from "./components/Aadhar";
+import Faq from "./components/Faq";
+import Complaints from "./components/Complaints";
+import Payment from "./components/Payment";
+import License from "./components/License";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/"><Landingpage /></Route>
+          <Route exact path="/id"><File /></Route>
+          <Route exact path="/home"><Home/></Route>
+          <Route exact path="/personaldetails"><Personaldetails/></Route>
+          <Route exact path="/aadhar"><Aadhar/></Route>
+          <Route exact path="/faq"><Faq/></Route>
+          <Route exact path="/complaints"><Complaints/></Route>
+          <Route exact path="/payment"><Payment/></Route>
+          <Route exact path="/license"><License/></Route>
+          
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

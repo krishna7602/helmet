@@ -1,38 +1,136 @@
-.App {
+*{
+  margin: 0px;
+  padding: 0px;
+  background-color: #07111A;
+}
+.slider{
+  margin-top: 70px;
+  height: 500px;
+  width: 900px;
+  margin-left: 40px;
+
+}
+p{
+  color: beige;
+}
+.footer{
   text-align: center;
+  border-top: 2px solid white;
+}
+.container{
+  padding: 50px;
+}
+.img1{
+  border-radius: 50px;
+  opacity: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nitjlogo{
+  height:100px;
+  width: 100px;
+  margin-top: 40px;
+}
+.userlogo{
+  height: 200px;
+  width: 200px;
+  border-radius: 200px;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.card-title{
+  color: antiquewhite;
+}
+td{
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+#useravatar{
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+table{
+    margin-top: 50px;
+    border: 2px solid ;
+    
+}
+th{
+  color: aqua;
+}
+.status{
+  color: chartreuse;
+}
+
+#logo1{
+  height: 40px;
+  width: 40px;
+  border-radius: 80px;
+}
+.container1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1{
+  font-weight: 150px;
+  color: beige;
+  margin-top: 10px;
+  text-shadow: 2px 2px 5px rgb(100, 212, 246);
+}
+label{
+  color:white;
+}
+.navbar{
+  border: 1px solid deeppink;
+  border-radius: 10px;
+  box-shadow: 2px 2px 30px deeppink;
+}
+.nitjlogoHome{
+  height: 100px;
+  width: 100px;
+}
+#logo{
+  border-radius: 60px;
+}
+h5{
+  color: wheat;
+ padding: 20px;
+}
+h3{
+  color: aquamarine;
+}
+.firstnav{
+  width: 100%;
+  border-bottom: 2px solid cyan;
+
+}
+.accordion-button {
+  color: aliceblue;
+}
+.containerpayment{
+  width: 18rem;
+  text-align: center;
+  
+}
+
+@media only screen and (max-width: 600px){
+  .container{
+    flex-wrap: wrap;
   }
-  to {
-    transform: rotate(360deg);
+  .nitjlogo{
+    margin-left: 35%;
+  }
+  .slider{
+    display: none;
+  }
+  h1{
+    margin-top: 40px;
+  }
+  footer{
+    display: none;
+  }
+  .table{
+    font-weight: 1px;
   }
 }
