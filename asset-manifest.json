@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/helmet/static/css/main.495b6d17.css",
+    "main.js": "/helmet/static/js/main.998cef66.js",
+    "static/js/592.7f72a991.chunk.js": "/helmet/static/js/592.7f72a991.chunk.js",
+    "static/media/nitj2.jpg": "/helmet/static/media/nitj2.32aed161b057cfea659d.jpg",
+    "static/media/nitj3.jpg": "/helmet/static/media/nitj3.d8750b4be9c70e71c1cc.jpg",
+    "static/media/nitj1.jpeg": "/helmet/static/media/nitj1.9638c40c5d3424514d1e.jpeg",
+    "static/media/nitjlogo.jpeg": "/helmet/static/media/nitjlogo.9f00e4155fd9bf7d8c7e.jpeg",
+    "static/media/7309681.jpg": "/helmet/static/media/7309681.749667cc5449de2b9786.jpg",
+    "static/media/logo.jpg": "/helmet/static/media/logo.efcccbb9a4085dadae40.jpg",
+    "static/media/NIT-Jalandhar.jpg": "/helmet/static/media/NIT-Jalandhar.dc13a0e0f2939d3cebe8.jpg",
+    "index.html": "/helmet/index.html",
+    "main.495b6d17.css.map": "/helmet/static/css/main.495b6d17.css.map",
+    "main.998cef66.js.map": "/helmet/static/js/main.998cef66.js.map",
+    "592.7f72a991.chunk.js.map": "/helmet/static/js/592.7f72a991.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.495b6d17.css",
+    "static/js/main.998cef66.js"
+  ]
+}
