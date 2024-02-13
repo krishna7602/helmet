@@ -28,7 +28,7 @@ export default function Landingpage() {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
-              
+              //r
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
