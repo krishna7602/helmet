@@ -43,7 +43,7 @@ export default function Landingpage() {
             </div>
             
             <Link to="/home"><button type="button" className="btn btn-primary">LogIn</button></Link>
-            <Link to="/signup"><button type="button" className="btn btn-primary">Sign Up</button></Link>
+            <Link to="/signup"><button type="button" className="btn btn-outline-success mx-4">Sign Up</button></Link>
           </form>
         </div>
         
