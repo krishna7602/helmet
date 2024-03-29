@@ -1,13 +1,26 @@
-import React from "react"
+import React, { useState } from 'react'
 import nitj1 from "./nitj1.jpeg"
 import nitj2 from "./nitj2.jpg"
 import nitj3 from "./nitj3.jpg"
 import nitjlogo from "./nitjlogo.jpeg"
-
 import { Link } from "react-router-dom"
+import Validation from './LoginValidation'
 
 export default function Landingpage() {
+  const [values, setValues] = useState({
+    email: '',
+    password: ''
+  });
 
+  const [errors, setError] = useState({})
+
+  const handleInput = (event) => {
+    setValues(prev => ({...prev,[event.target.name]:[event.target.value]}))
+  }
+  const handleLogin = (event) => {
+    event.preventDefault();
+    setError(Validation(values));
+  }
   return (
     <>
       <div className="container d-flex">
@@ -16,33 +29,42 @@ export default function Landingpage() {
           <h1 className="my-10">
             SafeCommute Compliance System
           </h1>
-          <form>
-            <div className="mb-3">
-              <label htmlFor="exampleInputEmail1" className="form-label">
+          <form action="" onSubmit={handleLogin}>
+            <div className='mb-3'>
+              <label htmlFor="email" className="form-label">
                 Email address
               </label>
               <input
+                onChange={handleInput}
+                name='email'
                 type="email"
                 placeholder="@nitj.ac.in"
                 className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
-              //r
+              {errors.email && <span className='text-danger'>{errors.email} && console.log("abcd")</span>}
             </div>
-            <div className="mb-3">
-              <label htmlFor="exampleInputPassword1" className="form-label">
+            <div className='mb-3'>
+              <label htmlFor="password" className="form-label">
                 Password
               </label>
               <input
+              onChange={handleInput}
+                name='password'
                 type="password"
                 placeholder="AdharNo"
                 className="form-control"
                 id="exampleInputPassword1"
               />
+              {errors.password && <span className='text-danger'>{errors.password}</span>}
+
             </div>
             
-            <Link to="/home"><button type="button" className="btn btn-primary">LogIn</button></Link>
+            <Link to="/home">
+            <button type="button" className="btn btn-primary">LogIn</button> 
+            </Link>
+
             <Link to="/signup"><button type="button" className="btn btn-outline-success mx-4">Sign Up</button></Link>
           </form>
         </div>
