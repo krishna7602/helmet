@@ -1,7 +1,7 @@
 import "./App.css";
 import File from "./components/File";
 import Home from "./components/Home2";
-import Landingpage from "./components/Landinpage1";
+import Login from "./components/Login";
 // import { BrowserRouter, } from "react-router-dom";
 // import User from "./components/User";
 // import Personaldetails from "./components/Personaldetails";
@@ -17,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path = '/'><Landingpage/></Route> 
+        <Route exact path = '/'><Login/></Route> 
         <Route exact path = '/signup'><SignUp/></Route> 
         <Route exact path = '/home'><Home/></Route> 
       </Switch>

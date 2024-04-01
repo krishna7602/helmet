@@ -6,20 +6,20 @@ import nitjlogo from "./nitjlogo.jpeg"
 import { Link } from "react-router-dom"
 import Validation from './LoginValidation'
 
-export default function Landingpage() {
+export default function Login() {
   const [values, setValues] = useState({
     email: '',
     password: ''
   });
 
-  const [errors, setError] = useState({})
+  const [errors, setErrors] = useState({})
 
   const handleInput = (event) => {
-    setValues(prev => ({...prev,[event.target.name]:[event.target.value]}))
+    setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
   }
   const handleLogin = (event) => {
     event.preventDefault();
-    setError(Validation(values));
+    setErrors(Validation(values));
   }
   return (
     <>
@@ -43,7 +43,7 @@ export default function Landingpage() {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
-              {errors.email && <span className='text-danger'>{errors.email} && console.log("abcd")</span>}
+              {errors.email && <div className='text-danger'>{errors.email} && console.log("abcd")</div>}
             </div>
             <div className='mb-3'>
               <label htmlFor="password" className="form-label">
@@ -57,13 +57,13 @@ export default function Landingpage() {
                 className="form-control"
                 id="exampleInputPassword1"
               />
-              {errors.password && <span className='text-danger'>{errors.password}</span>}
+              {errors.password && <div className='text-danger'>{errors.password}</div>}
 
             </div>
-            
-            <Link to="/home">
             <button type="button" className="btn btn-primary">LogIn</button> 
-            </Link>
+
+            {/* <Link to="/home">
+            </Link> */}
 
             <Link to="/signup"><button type="button" className="btn btn-outline-success mx-4">Sign Up</button></Link>
           </form>
