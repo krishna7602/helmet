@@ -7,7 +7,7 @@ import Personaldetails from "./Personaldetails";
 import Faq from "./Faq";
 import Footer from "./Footer";
 
-import Landingpage from "./Landinpage1";
+import Login from "./Login";
 
 export default function Home() {
   return (
