@@ -13,7 +13,7 @@ function Validation(values) {
         error.lname = ""
     }
     if(values.email === "") {
-        error.email = "Password should not be empty"
+        error.email = "email should not be empty"
     }
     else {
         error.password = ""
