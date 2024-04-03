@@ -35,7 +35,7 @@ export default function Login() {
                 Email address
               </label>
               <input
-                onChange={handleInput}
+                onSubmit={handleInput}
                 name='email'
                 type="email"
                 placeholder="@nitj.ac.in"
@@ -43,21 +43,21 @@ export default function Login() {
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
-              {errors.email && <div className='text-danger'>{errors.email} && console.log("abcd")</div>}
+              {errors.email && <span className='text-danger'>{errors.email}</span>}
             </div>
             <div className='mb-3'>
               <label htmlFor="password" className="form-label">
                 Password
               </label>
               <input
-              onChange={handleInput}
+              onSubmit={handleInput}
                 name='password'
                 type="password"
                 placeholder="AdharNo"
                 className="form-control"
                 id="exampleInputPassword1"
               />
-              {errors.password && <div className='text-danger'>{errors.password}</div>}
+              {errors.password && <span className='text-danger'>{errors.password}</span>}
 
             </div>
             <button type="button" className="btn btn-primary">LogIn</button> 
