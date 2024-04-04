@@ -23,15 +23,16 @@ function SignUp() {
     event.preventDefault();
     const formErrors = Validation(values);
     setErrors(formErrors); // Update errors state
-    console.log(formErrors);
+    console.log(values);
     console.log("abcd");
-    if (errors.fname === "" && errors.lname === "" && errors.email === "" && errors.password === "") {
-      axios.post('http://localhost:3000/signup', values)
-      .then(res => {
-        <Link to ="/"/>
-      })
-      .catch(err => console.log(err))
-    }
+    if (formErrors.fname === "" && formErrors.lname === "" && formErrors.email === "" && formErrors.password === "") {
+      axios.post('http://localhost:8081/signup', values) 
+    .then(res => {
+        console.log(res.data); // Log the response from the server
+        // Redirect or handle success as needed
+    })
+    .catch(err => console.log(err));
+  }
 }
 
   return (
