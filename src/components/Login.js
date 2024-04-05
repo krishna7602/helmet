@@ -3,9 +3,9 @@ import nitj1 from "./nitj1.jpeg"
 import nitj2 from "./nitj2.jpg"
 import nitj3 from "./nitj3.jpg"
 import nitjlogo from "./nitjlogo.jpeg"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import Validation from './LoginValidation'
-
+import axios from 'axios'
 export default function Login() {
   const [values, setValues] = useState({
     email: '',
@@ -14,12 +14,24 @@ export default function Login() {
 
   const [errors, setErrors] = useState({})
 
+  const navigate = useHistory() ;
   const handleInput = (event) => {
     setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
   }
   const handleLogin = (event) => {
     event.preventDefault();
-    setErrors(Validation(values));
+    const formErrors = Validation(values);
+    setErrors(formErrors); 
+    if (errors.email === "" && errors.password === "") {
+      axios.post('http://localhost:8081/signup',values)
+      .then(res => {
+        if (res.data === "success")
+          navigate.push('/home');
+        else
+          alert("No record exists, please sign up")
+      })
+      .catch(err => console.log(err))
+    }
   }
   return (
     <>
@@ -37,7 +49,7 @@ export default function Login() {
               <input
                 onSubmit={handleInput}
                 name='email'
-                type="email"
+                type="text"
                 placeholder="@nitj.ac.in"
                 className="form-control"
                 id="exampleInputEmail1"
@@ -61,9 +73,6 @@ export default function Login() {
 
             </div>
             <button type="button" className="btn btn-primary">LogIn</button> 
-
-            {/* <Link to="/home">
-            </Link> */}
 
             <Link to="/signup"><button type="button" className="btn btn-outline-success mx-4">Sign Up</button></Link>
           </form>
