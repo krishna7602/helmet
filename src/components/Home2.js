@@ -1,13 +1,10 @@
 import React from "react";
 import logo from "./logo.jpg";
-import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
-import useravatar from "./7309681.jpg";
+import { Link } from "react-router-dom";
 import nitjlogo from "./nitjlogo.jpeg";
 import Personaldetails from "./Personaldetails";
 import Faq from "./Faq";
-import Footer from "./Footer";
 
-import Login from "./Login";
 
 export default function Home() {
   return (
@@ -23,7 +20,7 @@ export default function Home() {
       </div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-#07111A">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand">
             <img src={logo} alt="" id="logo1" />
           </a>
           <button
@@ -40,7 +37,7 @@ export default function Home() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link active" aria-current="page">
                   <i className="ri-home-4-fill"></i> Home
                 </a>
               </li>

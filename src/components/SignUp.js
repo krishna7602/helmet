@@ -1,7 +1,7 @@
 
 import React, { useState } from "react"
 import Validation from "./SignUpValidation";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import axios from 'axios'
 
 function SignUp() {
@@ -12,7 +12,8 @@ function SignUp() {
     password:''
   });
 
-  // const navigate = useNavigate();
+  const history = useHistory();
+  
   const [errors, setErrors] = useState({})
 
   const handleInput = (event) => {
@@ -22,14 +23,12 @@ function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formErrors = Validation(values);
-    setErrors(formErrors); // Update errors state
-    console.log(values);
-    console.log("abcd");
+    setErrors(formErrors); 
     if (formErrors.fname === "" && formErrors.lname === "" && formErrors.email === "" && formErrors.password === "") {
       axios.post('http://localhost:8081/signup', values) 
     .then(res => {
-        console.log(res.data); // Log the response from the server
-        // Redirect or handle success as needed
+        console.log(res.data); 
+        history.push('/');
     })
     .catch(err => console.log(err));
   }
@@ -53,7 +52,7 @@ function SignUp() {
 
 <div className='mb-3'>
   <label htmlFor="email"><strong>Email</strong></label>
-  <input type="email" onChange={handleInput} name="email" id="email" placeholder='Enter Email' className='form-control rounded-0'/>
+  <input type="text" onChange={handleInput} name="email" id="email" placeholder='Enter Email' className='form-control rounded-0'/>
   {errors.email && <span className='text-danger'>{errors.email}</span>}
 </div>
 
