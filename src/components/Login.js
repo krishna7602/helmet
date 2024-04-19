@@ -72,7 +72,7 @@ export default function Login() {
               {errors.password && <span className='text-danger'>{errors.password}</span>}
 
             </div>
-            <button type="button" className="btn btn-primary">LogIn</button> 
+            <button type="submit" className="btn btn-primary">LogIn</button> 
 
             <Link to="/signup"><button type="button" className="btn btn-outline-success mx-4">Sign Up</button></Link>
           </form>

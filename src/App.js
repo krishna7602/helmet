@@ -17,9 +17,9 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact path = '/'><Home/></Route> 
         <Route exact path = '/'><Login/></Route> 
         <Route exact path = '/signup'><SignUp/></Route> 
-        <Route exact path = '/home'><Home/></Route> 
       </Switch>
     </BrowserRouter>
     // <Router>

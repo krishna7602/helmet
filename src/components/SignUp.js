@@ -25,7 +25,7 @@ function SignUp() {
     const formErrors = Validation(values);
     setErrors(formErrors); 
     if (formErrors.fname === "" && formErrors.lname === "" && formErrors.email === "" && formErrors.password === "") {
-      axios.post('http://localhost:8081/signup', values) 
+      axios.post('http://localhost:3000/signup', values) 
     .then(res => {
         console.log(res.data); 
         history.push('/');
@@ -64,7 +64,7 @@ function SignUp() {
 
 
           <button className='btn btn-success w-100 rounded-0'>Sign up</button>
-          <p>You are agree to our terms and policies</p>
+          <p>You agree to our terms and policies</p>
           <Link to ="/" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Log In</Link>
        </form>
      </div>
