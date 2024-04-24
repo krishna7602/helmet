@@ -1,6 +1,75 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import useravatar from "./7309681.jpg";
+
 export default function Personaldetails() {
+    const [image, setImage] = useState(null);
+    const hiddenFileInput = useRef(null);
+  
+    const handleImageChange = (event) => {
+      const file = event.target.files[0];
+      const imgname = event.target.files[0].name;
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        const img = new Image();
+        img.src = reader.result;
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          const maxSize = Math.max(img.width, img.height);
+          canvas.width = maxSize;
+          canvas.height = maxSize;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(
+            img,
+            (maxSize - img.width) / 2,
+            (maxSize - img.height) / 2
+          );
+          canvas.toBlob(
+            (blob) => {
+              const file = new File([blob], imgname, {
+                type: "image/png",
+                lastModified: Date.now(),
+              });
+  
+              console.log(file);
+              setImage(file);
+            },
+            "image/jpeg",
+            0.8
+          );
+        };
+      };
+    };
+  
+    const handleUploadButtonClick = (file) => {
+      var myHeaders = new Headers();
+      const token = "adhgsdaksdhk938742937423";
+      myHeaders.append("Authorization", `Bearer ${token}`);
+  
+      var formdata = new FormData();
+      formdata.append("file", file);
+  
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow",
+      };
+  
+      fetch("https://trickuweb.com/upload/profile_pic", requestOptions)
+        .then((response) => response.text())
+        .then((result) => {
+          console.log(JSON.parse(result));
+          const profileurl = JSON.parse(result);
+          setImage(profileurl.img_url);
+        })
+        .catch((error) => console.log("error", error));
+    };
+  
+    const handleClick = (event) => {
+      hiddenFileInput.current.click();
+    };
+
   return (
     <>
       <div className="container d-flex">
@@ -13,7 +82,7 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom01"
-              value="Ramkrishna"
+              placeholder="Enter your first name"
               required
             />
             <div className="valid-feedback">Looks good!</div>
@@ -26,7 +95,7 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom02"
-              value="Mondal"
+              placeholder="Enter your last name"
               required
             />
             
@@ -40,7 +109,7 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom02"
-              value="Biotech"
+              placeholder="Enter your branch"
               required
             />
             
@@ -57,8 +126,8 @@ export default function Personaldetails() {
                 type="text"
                 className="form-control"
                 id="validationCustomUsername"
+                placeholder="Enter your roll no"
                 aria-describedby="inputGroupPrepend"
-                value="22111040"
                 required
               />
               <div className="invalid-feedback">Please choose a username.</div>
@@ -72,7 +141,7 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom03"
-              value="jalandhar"
+              placeholder="Enter your city"
               required
             />
             <div className="invalid-feedback">Please provide a valid city.</div>
@@ -97,9 +166,24 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom05"
+              placeholder="Enter your zip code"
               required
             />
             <div className="invalid-feedback">Please provide a valid zip.</div>
+          </div>
+          <div className="col-md-3">
+            <label for="validationCustom05" className="form-label">
+              User type
+            </label>
+            <select className="form-select" id="validationCustom05" required>
+              <option selected disabled value="">
+                Select user type
+              </option>
+              <option>Student</option>
+              <option>Faculty</option>
+              <option>Staff</option>
+            </select>
+            <div className="invalid-feedback">Please select a valid state.</div>
           </div>
           <div className="mb-3">
                 <label for="exampleFormControlTextarea1" className="form-label">
@@ -135,8 +219,35 @@ export default function Personaldetails() {
             </button>
           </div>
         </form>
-        <div className="container ">
-          <img src={useravatar} alt="" id="useravatar" />
+
+        <div className="image-upload-container mx-5">
+          <div className="box-decoration">
+            <label htmlFor="image-upload-input" className="image-upload-label">
+              {image ? image.name : "Choose an image"}
+            </label>
+            <div onClick={handleClick} style={{ cursor: "pointer" }}>
+              {image ? (
+                <img src={URL.createObjectURL(image)} alt="upload image" className="img-display-after" />
+              ) : (
+                <img src={useravatar} alt="upload image" className="img-display-before" />
+              )}
+
+              <input
+                id="image-upload-input"
+                type="file"
+                onChange={handleImageChange}
+                ref={hiddenFileInput}
+                style={{ display: "none" }}
+              />
+            </div>
+
+            <button
+              className="image-upload-button btn bg-success mx-5 mt-3"
+              onClick={handleUploadButtonClick}
+            >
+              Upload
+            </button>
+          </div>
         </div>
       </div>
     </>
