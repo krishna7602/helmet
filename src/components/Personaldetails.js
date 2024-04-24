@@ -82,7 +82,7 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom01"
-              value="Ramkrishna"
+              placeholder="Enter your first name"
               required
             />
             <div className="valid-feedback">Looks good!</div>
@@ -95,7 +95,7 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom02"
-              value="Mondal"
+              placeholder="Enter your last name"
               required
             />
             
@@ -109,7 +109,7 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom02"
-              value="Biotech"
+              placeholder="Enter your branch"
               required
             />
             
@@ -126,8 +126,8 @@ export default function Personaldetails() {
                 type="text"
                 className="form-control"
                 id="validationCustomUsername"
+                placeholder="Enter your roll no"
                 aria-describedby="inputGroupPrepend"
-                value="22111040"
                 required
               />
               <div className="invalid-feedback">Please choose a username.</div>
@@ -141,7 +141,7 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom03"
-              value="jalandhar"
+              placeholder="Enter your city"
               required
             />
             <div className="invalid-feedback">Please provide a valid city.</div>
@@ -166,9 +166,24 @@ export default function Personaldetails() {
               type="text"
               className="form-control"
               id="validationCustom05"
+              placeholder="Enter your zip code"
               required
             />
             <div className="invalid-feedback">Please provide a valid zip.</div>
+          </div>
+          <div className="col-md-3">
+            <label for="validationCustom05" className="form-label">
+              User type
+            </label>
+            <select className="form-select" id="validationCustom05" required>
+              <option selected disabled value="">
+                Select user type
+              </option>
+              <option>Student</option>
+              <option>Faculty</option>
+              <option>Staff</option>
+            </select>
+            <div className="invalid-feedback">Please select a valid state.</div>
           </div>
           <div className="mb-3">
                 <label for="exampleFormControlTextarea1" className="form-label">
